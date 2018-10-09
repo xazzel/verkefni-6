@@ -1,0 +1,238 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+  font-family: 'Open Sans', helvetica, arial, sans-serif;
+  font-size: 16px;
+}
+
+main {
+  margin: 0 auto;
+  max-width: 1450px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+/* TODO taka átti padding af main þegar komið er fyrir ofan hámarksbreidd */
+
+@media (min-width: 1450px){
+  main { 
+    padding-left: 0px;
+    padding-right: 0px;
+  } 
+}
+
+h1 {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.text {
+  margin-bottom: 20px;
+}
+
+.text p {
+  margin-bottom: 20px;
+}
+
+.image {
+  max-width: 100%;
+  margin-bottom: 20px;
+}
+
+/* grid fyrir efni, setja þarf upp á­ html */
+
+.grid{
+  max-width: 1450px;
+  margin: 0 auto;
+}
+
+.grid__row {
+  display: flex;
+  margin-left: -10px;
+  margin-right: -10px;
+}
+
+.grid__col {
+  width: 50%;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+/* TODO setja upp grid fyrir >= 1000px */
+
+@media (min-width: 1000px){
+  .cards .grid__col {
+    display: flex;
+    flex-wrap: wrap; 
+    width: 33.3333333%;
+  }
+
+  .cards .grid__col {
+    padding-left: 6.666px;
+    padding-right: 6.666px;
+  }
+
+  .cards .grid__col:nth-child(3n+1) {
+    padding-left: 0px;
+    padding-right: 13.333px;
+  }
+
+  .cards .grid__col:nth-child(3n+3) {
+    padding-right: 0px;
+    padding-left: 13.333px; 
+  }
+
+}
+
+/* TODO koma mynd fyrir á réttum stað í < 1000px */
+
+@media (max-width: 999px){
+
+  .grid__row {
+    flex-direction: column;
+  }
+
+  .grid__col {
+    width : 100%;
+  }
+
+  .grid__row:nth-child(2) {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+}
+
+/*TODO koma öllu á sinni stað milli 700px-1000px*/
+
+@media (min-width: 700px) and (max-width: 999px){
+
+  .cards {
+    margin-bottom: 40px;
+  }
+
+  .cards .grid__col { 
+    display: flex;
+    flex-wrap: wrap;
+    width: 50%;
+  } 
+
+  .cards .grid__col:nth-child(odd) {
+    padding-left: 0px;
+  }
+
+  .cards .grid__col:nth-child(even) {
+    padding-right: 0px;
+  }
+}
+
+/* cards frá seinustu viku */
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+
+  margin-bottom: 10px;
+  padding: 10px;
+  width: 100%;
+  overflow: hidden;
+  padding-bottom: 20px;
+  border-bottom: 2px solid #aaa;
+
+  max-width: 470px;
+  max-height: 300px;
+  border: 2px solid #aaa;
+  border-radius: 5px;
+
+  background-color: #fff;
+}
+
+.card__caption {
+  margin-bottom: 20px;
+
+  font-size: 1.375em;
+  line-height: 1;
+  word-break: break-word;
+}
+
+.card__container {
+  display: flex;
+  flex: 1;
+}
+
+.card__text {
+  font-size: 1em;
+  line-height: 1.375;
+  overflow: auto;
+  word-break: break-word;
+}
+
+.card__imgcontainer {
+  padding-left: 20px;
+  flex: 0 0 150px;
+}
+
+.card__img {
+  max-width: 100%;
+}
+
+.card__list {
+  margin-top: 10px;
+
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+
+  list-style: none;
+}
+
+.card__listitem {
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+/* TODO responsive sílar fyrir .card þegar minnir en 700px*/
+
+@media (max-width: 699px) {
+  .card {
+    max-width: none;
+    max-height: none;
+    height: 100%;
+    border : none;
+    border-bottom : 2px solid #aaa;
+    border-radius: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+
+  .card__container{
+    flex-direction: column;
+    padding-bottom: 10px;
+  }
+
+  .card__text {
+    padding-bottom: 20px;
+  }
+
+  .card__imgcontainer{
+    padding-left: 0px;
+  }
+
+  .cards .grid__col { 
+    padding-left: 0px;
+    padding-right: 0px;
+  } 
+}
